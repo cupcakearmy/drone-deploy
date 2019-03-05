@@ -19,13 +19,7 @@ def execute(c: SSHClient, cmd: str, path: str = None) -> str:
     if path is not None:
         cmd = 'cd {}; {}'.format(path, cmd)
     stdin, stdout, stderr = c.exec_command(cmd)
-    output = stdout.read().decode('utf-8').strip()
-    error = stderr.read().decode('utf-8')
-
-    if len(error) is not 0:
-        print('ERROR: {}'.format(error))
-
-    return output
+    return stdout.read().decode('utf-8').strip()
 
 
 def main():
@@ -103,6 +97,7 @@ def main():
 
         for command in commands:
             output = execute(ssh, command, target)
+            print(command)
             print(output)
 
     finally:
