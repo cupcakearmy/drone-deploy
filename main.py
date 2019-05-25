@@ -57,7 +57,7 @@ def main():
     if envsraw is not None:
         prefix = 'PLUGIN_'
         # Take only the envs that start with PLUGIN_ and remore the prefix
-        envs = {k[len(prefix):]:v for k, v in a.items() if k.startswith(prefix)}
+        envs = {k[len(prefix):]:v for k, v in os.environ.items() if k.startswith(prefix)}
 
         if 'all' != envsraw or ',' in envsraw:
             # Make them uppercase
