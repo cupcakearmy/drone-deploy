@@ -13,11 +13,7 @@ steps:
         from_secret: ssh_key
       port: 1312
       test: ok
-      envs:
-        - user
-        - host
-        - key
-        - test
+      envs: all
       target: /srv/web/test
       commands:
         - echo $HOST
