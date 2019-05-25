@@ -61,7 +61,7 @@ steps:
     settings:
       # host, user, port, key, when, target ...
 
-      myenv: 'Something'
+      myvar: 'Something'
       somesecret:
         from_secret: mysecret
       envs:
