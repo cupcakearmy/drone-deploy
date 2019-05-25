@@ -20,9 +20,8 @@ steps:
         - test
       target: /srv/web/test
       commands:
-        - echo $KEY
         - echo $HOST
-        - echo $test
+        - echo $TEST
     when:
       event: push
       branch: master

@@ -113,7 +113,7 @@ def main():
             sftp.close()
 
         for command in commands:
-            output = execute(ssh, command, target)
+            output = execute(ssh, command, target, envs)
             print(command)
             print(output)
 
