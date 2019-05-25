@@ -23,6 +23,8 @@ steps:
       user: root
       key:
         from_secret: ssh_key
+      # or with a password
+      # password: S3cr37Sh1zzl3
       port: 69
       target: /my/web/root/project
       sources:
