@@ -16,10 +16,13 @@ steps:
       envs:
         - user
         - host
+        - key
+        - test
       target: /srv/web/test
       commands:
         - echo $KEY
         - echo $HOST
+        - echo $test
     when:
       event: push
       branch: master
