@@ -73,6 +73,6 @@ steps:
 ```
 
 ###### Note
-If you don't want to specify single variables just use `envs:all` and all the parameters inside of `settings` will be available.
+If you don't want to specify single variables just use `envs: all` and all the parameters inside of `settings` will be available.
 
 All the vars will be automagically be uppercased.
