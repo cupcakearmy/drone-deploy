@@ -18,12 +18,11 @@ steps:
   - name: deploy
     image: cupcakearmy/drone-deploy
     pull: always
-    environment:
-      PLUGIN_KEY:
-        from_secret: ssh_key
     settings:
       host: example.org
       user: root
+      key:
+        from_secret: ssh_key
       port: 69
       target: /my/web/root/project
       sources:
@@ -43,3 +42,32 @@ steps:
 The plugins creates a tarball compressing all the files included inside of `sources`.
 Then the compressed tarball gets uploaded, extracted and deleted, leaving only the files specified by `sources` inside of the `target` folder.
 Afterwards all the commands inside of `commands` will get executed at the `target` directory.
+
+### Mapping remote environment variables 🗺
+
+Sometimes it's usefull to have a remote env with a secret. Here is how.
+
+```yaml
+kind: pipeline
+name: default
+
+steps:
+
+  # build...
+
+  - name: deploy
+    image: cupcakearmy/drone-deploy
+    pull: always
+    settings:
+      # host, user, port, key, when, target ...
+
+      myenv: 'Something'
+      somesecret:
+        from_secret: mysecret
+      envs:
+        - myvar
+        - somesecret
+      commands:
+        - echo $MYENV # Outputs: Something
+        - echo $SOMESECRET # Outputs: Whatever is saved in drone as `mysecret`
+```
