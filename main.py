@@ -54,6 +54,7 @@ def main():
 
     # Remote Envs
     envsraw = os.environ.get('PLUGIN_ENVS')
+    envs = None
     if envsraw is not None:
         prefix = 'PLUGIN_'
         # Take only the envs that start with PLUGIN_ and remore the prefix
