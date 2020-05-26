@@ -28,6 +28,8 @@ steps:
       port: 69
       target: /my/web/root/project
       sources:
+        # To copy all the files
+        # - . 
         - ./public
         - ./docker-compose.yml
         - ./docker-compose.prod.yml
